@@ -22,7 +22,6 @@ export default function Hero() {
                 <h1 className="text-4xl sm:text-5xl md:text-4xl font-extrabold text-white mb-4">
                     Find Your Performance Arc
                 </h1>
-
                 <SocialMediaLinks />
             </div>
         </div>
