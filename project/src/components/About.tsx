@@ -1,12 +1,15 @@
+import React from 'react'
+import Image from 'next/image'
 import { 
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-    CardFooter
 } from "@/components/ui/card"
-import Image from 'next/image'
+import { SubscribeLink } from '@/components/Link'
+import { Button } from "@/components/ui/button"
+import { Twitter, Facebook, Instagram } from 'lucide-react'
 
 export interface AboutArcProps {
   title: string
@@ -26,16 +29,17 @@ export function AboutArc({ props }: { props: AboutArcProps }) {
             <CardHeader>
                 <CardTitle className="text-2xl font-bold">About the Show</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+            <CardContent className="space-y-6">
+                <div className="text-center">
                     <h3 className="text-xl font-semibold mb-2">{props.title}</h3>
-                    <CardDescription className="text-sm text-white mb-10">
+                    <CardDescription className="text-sm mb-4 max-w-2xl mx-auto">
                         {props.description}
                     </CardDescription>
+                    <SubscribeLink />
                 </div>
-                <div className="flex flex-col items-end text-right">
-                    {props && props.hosts.map((host, index) => (
-                        <div key ={index} className="flex flex-col items-end mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    {props.hosts.map((host, index) => (
+                        <div key={index} className="flex flex-col items-center text-center">
                             <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4">
                                 <Image
                                     src={host.hostImg}
@@ -44,13 +48,21 @@ export function AboutArc({ props }: { props: AboutArcProps }) {
                                     objectFit="cover"
                                 />
                             </div>
-                            <h4 className="text-xl font-semibold mb-2">{host.name}</h4>
-                            <CardDescription className="text-sm text-gray-500 mb-4">
+                            <h4 className="text-lg font-semibold mb-2">{host.name}</h4>
+                            <CardDescription className="text-sm mb-4">
                                 {host.bio}
                             </CardDescription>
-                            <CardFooter>
-                                Social Media Links
-                            </CardFooter>
+                            <div className="flex space-x-2">
+                                <Button size="icon" variant="ghost">
+                                    <Twitter className="h-4 w-4" />
+                                </Button>
+                                <Button size="icon" variant="ghost">
+                                    <Facebook className="h-4 w-4" />
+                                </Button>
+                                <Button size="icon" variant="ghost">
+                                    <Instagram className="h-4 w-4" />
+                                </Button>
+                            </div>
                         </div>
                     ))}
                 </div>

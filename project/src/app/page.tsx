@@ -36,8 +36,8 @@ export default function Home() {
                             building trust and open communication with players, especially when navigating 
                             personal relationships early on in your coaching career. They’ll also touch on 
                             the importance of emotional intelligence in coaching and how to manage your own 
-                            mental habits to stay focused and effective, even in the face of adversity. 
-                            Discover how to balance your leadership style with your coaching philosophy, 
+                            mental habits to stay focused and effective, even in the face of adversity.`
+  const episodeDescription2 = `Discover how to balance your leadership style with your coaching philosophy, 
                             and how skill development isn’t just for players—it’s an ongoing process for coaches too.
                             Plus, they share key advice for aspiring coaches on how to grow and thrive in 
                             this dynamic and rewarding profession. Tune in for insights on coaching through 
@@ -47,16 +47,17 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <FeaturedEpisode 
-        title="The Pilot"
-        description={episodeDescription}
-        imageUrl="/logoWithNames.jpg"
-        duration="6 minutes 42 seconds"
-        date="Dec 13, 2024"
-        link="https://open.spotify.com/episode/5OUtSgVb56z8ay4NoYsuCL?si=ddefeae00b2046fa"
-        />
+      <AboutArc props={props} />
       <div className="py-20">
-        <AboutArc props={props} />
+        <FeaturedEpisode 
+          title="The Pilot"
+          description={episodeDescription}
+          description2={episodeDescription2}
+          imageUrl="/logoWithNames.jpg"
+          duration="6 minutes 42 seconds"
+          date="Dec 13, 2024"
+          link="https://open.spotify.com/episode/5OUtSgVb56z8ay4NoYsuCL?si=ddefeae00b2046fa"
+          />
       </div>
     </div>
   )

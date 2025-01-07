@@ -8,6 +8,7 @@ import { PlayCircle } from 'lucide-react'
 interface FeaturedEpisodeProps {
   title: string
   description: string
+  description2: string
   imageUrl: string
   duration: string
   date: string
@@ -17,6 +18,7 @@ interface FeaturedEpisodeProps {
 const FeaturedEpisode: React.FC<FeaturedEpisodeProps> = ({
   title,
   description,
+  description2,
   imageUrl,
   duration,
   date,
@@ -42,6 +44,9 @@ const FeaturedEpisode: React.FC<FeaturedEpisodeProps> = ({
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <CardDescription className="text-sm text-gray-500 mb-4">
               {description}
+            </CardDescription>
+            <CardDescription className="text-sm text-gray-500 mb-4">
+              {description2}
             </CardDescription>
           </div>
           <div className="flex items-center justify-between text-sm text-gray-500">
