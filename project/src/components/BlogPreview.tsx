@@ -6,7 +6,7 @@ import { Tables } from '@/lib/types/supabase'
 
 export function BlogPostPreview({ post }: { post: Tables<'posts'> }) {
     return (
-        <Card className="overflow-hidden bg-gray-800 border-gray-700 flex flex-col h-[400px] w-[400px]">
+        <Card className="overflow-hidden border-gray-700 flex flex-col h-[400px] w-[400px]">
             <div className="w-full h-full bg-gray-700 flex items-center justify-center">
                 <span className="text-gray-400">No image available</span>
             </div>
@@ -24,6 +24,6 @@ export function BlogPostPreview({ post }: { post: Tables<'posts'> }) {
             </Button>
           </CardFooter>
         </Card>
-      )
-    }
+    )
+}
 

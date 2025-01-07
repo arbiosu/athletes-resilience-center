@@ -2,7 +2,7 @@ import { createServiceClient } from "@/lib/supabase/service"
 import { Tables } from "@/lib/types/supabase"
 
 /**
- * TODO
+ * TODO: Optimize, pagination, sort by most recent, etc
  * @returns Blog posts
  */
 export async function getBlogPosts() {

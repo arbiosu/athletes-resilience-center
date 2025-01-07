@@ -39,8 +39,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         <ThemeProvider>
-          <Navbar />
             {children}
         </ThemeProvider>
       </body>
