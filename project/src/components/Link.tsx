@@ -1,7 +1,7 @@
-import { Instagram, Youtube, Headphones } from "lucide-react"
 import Link from 'next/link'
+import { Instagram, Youtube, Headphones } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
+import { JSX } from "react"
 
 interface StyledLinkProps {
     href: string
