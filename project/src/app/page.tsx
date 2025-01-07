@@ -34,10 +34,10 @@ export default function Home() {
                             make the leap or a young coach just starting out, they explore the mental shifts 
                             required to succeed in this new leadership role. They discuss the challenges of 
                             building trust and open communication with players, especially when navigating 
-                            personal relationships early on in your coaching career. They’ll also touch on 
+                            personal relationships early on in your coaching career. `
+  const episodeDescription2 = `They’ll also touch on 
                             the importance of emotional intelligence in coaching and how to manage your own 
-                            mental habits to stay focused and effective, even in the face of adversity.`
-  const episodeDescription2 = `Discover how to balance your leadership style with your coaching philosophy, 
+                            mental habits to stay focused and effective, even in the face of adversity. Discover how to balance your leadership style with your coaching philosophy, 
                             and how skill development isn’t just for players—it’s an ongoing process for coaches too.
                             Plus, they share key advice for aspiring coaches on how to grow and thrive in 
                             this dynamic and rewarding profession. Tune in for insights on coaching through 
@@ -50,13 +50,13 @@ export default function Home() {
       <AboutArc props={props} />
       <div className="py-20">
         <FeaturedEpisode 
-          title="The Pilot"
+          title="Episode 1 - Transition From Player to Coach"
           description={episodeDescription}
           description2={episodeDescription2}
           imageUrl="/logoWithNames.jpg"
-          duration="6 minutes 42 seconds"
-          date="Dec 13, 2024"
-          link="https://open.spotify.com/episode/5OUtSgVb56z8ay4NoYsuCL?si=ddefeae00b2046fa"
+          duration="1 hour 10 mins"
+          date="Dec 16, 2024"
+          link="https://open.spotify.com/episode/6CGOOKs1iJE7l6NQ7sGVDJ"
           />
       </div>
     </div>
