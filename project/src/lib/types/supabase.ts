@@ -36,6 +36,7 @@ export type Database = {
     Tables: {
       posts: {
         Row: {
+          author: string | null
           brief_description: string | null
           content: string | null
           created_at: string
@@ -44,6 +45,7 @@ export type Database = {
           title: string | null
         }
         Insert: {
+          author?: string | null
           brief_description?: string | null
           content?: string | null
           created_at?: string
@@ -52,6 +54,7 @@ export type Database = {
           title?: string | null
         }
         Update: {
+          author?: string | null
           brief_description?: string | null
           content?: string | null
           created_at?: string
