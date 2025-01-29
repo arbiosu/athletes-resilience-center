@@ -16,6 +16,7 @@ export function BlogPostPreview({ post }: { post: Tables<'posts'> }) {
               <CalendarIcon className="mr-2 h-4 w-4" />
               {new Date(post.created_at).toLocaleDateString()}
             </p>
+            <p className='"text-gray-400 mb-2 flex items-center flex-shrink-0"'>By: {post.author}</p>
             <p className="line-clamp-3 text-gray-300 flex-grow">{post.brief_description}</p>
           </CardContent>
           <CardFooter className="p-4 pt-0">
