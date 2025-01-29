@@ -3,7 +3,7 @@ import { SocialMediaLinks } from "@/components/Link"
 
 export default function Hero() {
     return (
-        <div className="bg-gradient-to-r from-black-800 to-green-600 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-black-800 to-green-600 min-h-screen flex items-center justify-center px-2 sm:px-4 lg:px-6">
             <div className="text-center">
                 <div className="mb-8 flex justify-center">
                     <Image

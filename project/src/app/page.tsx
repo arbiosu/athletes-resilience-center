@@ -1,10 +1,9 @@
 import Hero from "@/components/Hero"
-import FeaturedEpisode from "@/components/FeaturedEpisode"
 import { AboutArc, AboutArcProps, AboutHostProps } from "@/components/About"
+import { NewFeaturedEpisode } from "@/components/FeaturedEpisode"
 
 export default function Home() {
   "use client";
-  // TODO: link up to Spotify API to grab most recent episode
   const hostProps: AboutHostProps[] = [
     {
       name: "Brandon Zachary",
@@ -28,35 +27,12 @@ export default function Home() {
       Tune in for candid conversations from two people passionate about mental performance development.`,
       hosts: hostProps,
   }
-
-  const episodeDescription = `Matt and Brandon dive into the transition from being a player 
-                            to stepping into the role of a coach. Whether you're a former athlete looking to 
-                            make the leap or a young coach just starting out, they explore the mental shifts 
-                            required to succeed in this new leadership role. They discuss the challenges of 
-                            building trust and open communication with players, especially when navigating 
-                            personal relationships early on in your coaching career. `
-  const episodeDescription2 = `They’ll also touch on 
-                            the importance of emotional intelligence in coaching and how to manage your own 
-                            mental habits to stay focused and effective, even in the face of adversity. Discover how to balance your leadership style with your coaching philosophy, 
-                            and how skill development isn’t just for players—it’s an ongoing process for coaches too.
-                            Plus, they share key advice for aspiring coaches on how to grow and thrive in 
-                            this dynamic and rewarding profession. Tune in for insights on coaching through 
-                            tough moments, learning from your experiences, and setting yourself up for 
-                            long-term success.`
-
+  
   return (
     <div>
       <Hero />
       <div className="py-10">
-        <FeaturedEpisode 
-          title="Episode 1 - Transition From Player to Coach"
-          description={episodeDescription}
-          description2={episodeDescription2}
-          imageUrl="/logoWithNames.jpg"
-          duration="1 hour 10 mins"
-          date="Dec 16, 2024"
-          link="https://open.spotify.com/episode/6CGOOKs1iJE7l6NQ7sGVDJ"
-          />
+        <NewFeaturedEpisode />
       </div>
       <AboutArc props={props} />
     </div>
