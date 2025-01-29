@@ -47,8 +47,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <AboutArc props={props} />
-      <div className="py-20">
+      <div className="py-10">
         <FeaturedEpisode 
           title="Episode 1 - Transition From Player to Coach"
           description={episodeDescription}
@@ -59,6 +58,7 @@ export default function Home() {
           link="https://open.spotify.com/episode/6CGOOKs1iJE7l6NQ7sGVDJ"
           />
       </div>
+      <AboutArc props={props} />
     </div>
   )
 }

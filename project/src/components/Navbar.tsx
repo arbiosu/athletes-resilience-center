@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 
@@ -12,7 +11,6 @@ const navItems = [
 ]
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
   return (
     <nav className="text-white fixed top-0 left-0 right-0 z-50 bg-slate-950">
@@ -33,34 +31,11 @@ export default function Navbar() {
             <Button
               variant="ghost"
               className="text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
             </Button>
           </div>
         </div>
       </div>
-
-      {mobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   )
 }
