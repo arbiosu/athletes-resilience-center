@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 
 interface Post {
     title: string,
@@ -20,7 +20,11 @@ export default function BlogPost({ post }: { post: Post }) {
             </CardHeader>
             <CardContent>
                 <p className="text-lg font-medium mb-4 text-muted-foreground">{post.brief_description}</p>
-                <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+                <div className="prose max-w-none">
+                    {post.content.split('\n').map((line, index) => 
+                        <p key={index} className="mb-4">{line}</p>
+                    )}
+                </div>
             </CardContent>
             </Card>
         </div>
