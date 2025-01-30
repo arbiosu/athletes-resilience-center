@@ -20,15 +20,15 @@ export default function BlogPostItem({ post }: BlogPostItemProps) {
   //<Badge variant={post.status === "published" ? "default" : "secondary"}>{post.status}</Badge>
 
   return (
-    <Card>
+    <Card className="bg-gray-800 border-gray-700 mb-5">
       <CardContent className="p-4">
         <div className="flex justify-between items-start">
           <div>
-            <h3 className="text-lg font-semibold">{post.title}</h3>
-            <p className="text-sm text-gray-500">
+            <h3 className="text-lg font-semibold text-gray-100">{post.title}</h3>
+            <p className="text-sm text-gray-400">
               By {post.author} • Created on: {new Date(post.created_at).toLocaleDateString()}
             </p>
-            <p className="mt-2">{post.brief_description}</p>
+            <p className="mt-2 text-gray-300">{post.brief_description}</p>
           </div>
         </div>
       </CardContent>
