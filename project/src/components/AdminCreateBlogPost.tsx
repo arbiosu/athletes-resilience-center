@@ -19,7 +19,7 @@ export async function CreateBlogPostForm() {
             console.log(error)
             redirect('/admin/error')
         }
-        revalidatePath('/admin', 'layout')
+        revalidatePath('/', 'layout')
     }
     return (
         <div className="py-10">

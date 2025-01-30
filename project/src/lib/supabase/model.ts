@@ -16,7 +16,7 @@ export async function getBlogContentById(id: number) {
     const supabase = await createServiceClient()
     return await supabase
     .from('posts')
-    .select('content')
+    .select()
     .eq('id', id)
     .single()
 }
