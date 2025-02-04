@@ -7,7 +7,7 @@ import { getEpisodes } from '@/lib/spotify/spotify'
 
 export async function NewFeaturedEpisode() {
   const data = await getEpisodes()
-  const featuredEpisode = data.items[1]
+  const featuredEpisode = data.items[0]
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
