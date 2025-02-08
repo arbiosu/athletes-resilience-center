@@ -6,9 +6,22 @@ import SpotifyEmbeddedPlayer from '@/components/SpotifyEmbeddedPlayer'
 import { getEpisodes } from '@/lib/spotify/spotify'
 
 
+interface SpotifySimplifiedEpisode {
+  audio_preview_url: string
+  description: string
+  html_description: string
+  duration_ms: number
+  explicit: boolean
+  external_urls: { spotify: string }
+  href: string
+  id: string
+  release_date: string
+}
+
+
 export async function NewFeaturedEpisode() {
   const data = await getEpisodes()
-  const featuredEpisode = data.items.find((episode) => episode)
+  const featuredEpisode = data.items.find((episode: SpotifySimplifiedEpisode) => episode)
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
