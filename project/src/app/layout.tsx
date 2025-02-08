@@ -30,12 +30,6 @@ export default function RootLayout({
   return (
     // per next-themes docs
     <html lang="en" suppressHydrationWarning>
-      <link
-        rel="icon"
-        href="/logoNoBg.png"
-        type="image"
-        sizes="any"
-      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

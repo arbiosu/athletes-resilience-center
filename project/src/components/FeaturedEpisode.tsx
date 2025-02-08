@@ -5,9 +5,10 @@ import { PlayCircle } from 'lucide-react'
 import SpotifyEmbeddedPlayer from '@/components/SpotifyEmbeddedPlayer'
 import { getEpisodes } from '@/lib/spotify/spotify'
 
+
 export async function NewFeaturedEpisode() {
   const data = await getEpisodes()
-  const featuredEpisode = data.items[0]
+  const featuredEpisode = data.items.find((episode) => episode)
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
@@ -29,7 +30,7 @@ export async function NewFeaturedEpisode() {
           </div>
       </CardContent>
       <CardFooter>
-        <Link href={featuredEpisode.external_urls.spotify}>
+        <Link href={featuredEpisode.external_urls.spotify} rel="noopener noreferrer" target="_blank">
           <Button>
             <PlayCircle className="mr-2 h-4 w-4" /> Listen on Spotify
           </Button>

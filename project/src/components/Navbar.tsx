@@ -21,9 +21,9 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white"
+                  className="px-3 py-4 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white"
                 >
-                <span className="text-2xl font-bold">{item.name}</span>
+                <span className="text-4xl font-bold">{item.name}</span>
                 </Link>
               ))}
           </div>

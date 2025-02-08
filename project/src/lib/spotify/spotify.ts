@@ -1,5 +1,5 @@
 const spotifyId = "4ffm2AA2kGffaH6TbMzilZ"
-const endpoint = `https://api.spotify.com/v1/shows/${spotifyId}/episodes`
+const endpoint = `https://api.spotify.com/v1/shows/${spotifyId}/episodes?limit=5`
 
 async function getSpotifyAccessToken() {
     const response = await fetch("https://accounts.spotify.com/api/token", {
