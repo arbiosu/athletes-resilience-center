@@ -18,7 +18,7 @@ export default function Home() {
   ]
   const props: AboutArcProps = {
       title: "The Athlete's Resilience Center Podcast",
-      description: `is dedicated to normalizing 
+      description: `Dedicated to normalizing 
       the conversation around mental performance in sports, coaching, and the transitions 
       athletes face after their careers. Each episode explores the mental challenges anyone 
       associated with sports may encounter, both on and off the field. Whether you're an athlete, 
