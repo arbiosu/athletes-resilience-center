@@ -15,7 +15,8 @@ export default async function Page({ params }: { params: Promise<{ slug: number 
         author: data.author ?? "",
         brief_description: data.brief_description ?? "",
         content: data.content ?? "",
-        created_at: data.created_at ?? ""
+        created_at: data.created_at ?? "",
+        picture_url: data.picture_url ?? "",
     }
 
     return <BlogPost post={post ?? ""} />

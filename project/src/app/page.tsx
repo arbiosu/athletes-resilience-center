@@ -7,12 +7,12 @@ export default function Home() {
   const hostProps: AboutHostProps[] = [
     {
       name: "Brandon Zachary",
-      bio: "Insert bio here tesihhiudu sdiuidufb isudcbhjdvbejbvedbikcb wiuef hieuf heirufhih isdcc ibueid bcskjnsdkjc nksdjvbckdjs vbkdsjbv kjbdksjvbkdjbvk",
+      bio: "Insert bio here",
       hostImg: "/logoNoBg.png",
     },
     {
       name: "Matt Owens",
-      bio: "Insert bio here tesihhiudu sdiuidufb isudcbhjdv bejbvedbikcb wiuefhieu fheirufh ihisd ccibueid bcskjnsdkjcn ksdjvb ckdjsv  bkdsjbvkjbdk sjvbkdjbvk",
+      bio: "Insert bio here",
       hostImg: "/logoNoBg.png",
     },
   ]
@@ -29,12 +29,12 @@ export default function Home() {
   }
   
   return (
-    <div>
+    <main className="bg-gradient-to-bl from-logoGreen via-lightLogoGray to-lightLogoGreen">
       <Hero />
       <div className="py-10">
         <NewFeaturedEpisode />
       </div>
       <AboutArc props={props} />
-    </div>
+    </main>
   )
 }
