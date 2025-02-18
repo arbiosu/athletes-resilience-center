@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import BlogPostList from "@/components/AdminBlogPostList"
+import { SignOutForm } from "@/components/AdminSignoutForm"
 import { redirect } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { PlusCircle } from "lucide-react"
@@ -8,9 +9,6 @@ import Link from "next/link"
 export default async function AdminDashboard() {
     const supabase = await createClient()
     const { data, error } = await supabase.auth.getUser()
-
-    console.log('Auth Data:', data)
-    console.log('Auth Error:', error)
 
     if (error || !data.user) {
         redirect('/admin/login')
@@ -28,6 +26,7 @@ export default async function AdminDashboard() {
                 </Link>
             </div>
             <BlogPostList />
+            <SignOutForm />
         </div>
     )
 }

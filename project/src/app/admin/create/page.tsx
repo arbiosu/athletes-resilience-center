@@ -1,4 +1,4 @@
-import { CreateBlogPostForm } from "@/components/AdminCreateBlogPost"
+import { CreateBlogPost } from "@/components/AdminCreateBlogPost"
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from "next/navigation"
 
@@ -13,5 +13,5 @@ export default async function Page() {
     if (error || !data.user) {
         redirect('/admin/login')
     }
-    return <CreateBlogPostForm />
+    return <CreateBlogPost />
 }
