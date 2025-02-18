@@ -40,6 +40,13 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+			logoGreen: '#165620',
+			lightLogoGreen: '#327B3D',
+			altLogoGreen: '#A3D6AB',
+			lightLogoGray: '#F0F0F0',
+			darkLogoGray: '#333333',
+			darkRed: '#571726',
+			darkPink: '#AC6676',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

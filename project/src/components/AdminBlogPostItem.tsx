@@ -1,6 +1,8 @@
 "use client"
 
-import type { Tables } from "@/lib/types/supabase"
+import type { Tables } from "@/lib/supabase/database"
+import { deleteBlogPost } from "@/lib/supabase/model"
+import { revalidatePath } from "next/cache"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Pencil, Trash2 } from "lucide-react"
@@ -11,9 +13,14 @@ interface BlogPostItemProps {
 }
 
 export default function BlogPostItem({ post }: BlogPostItemProps) {
-  const handleDelete = () => {
-    // Implement delete functionality
-    console.log(`Delete post with id: ${post.id}`)
+  const handleDelete = async () => {
+    const { error } = await deleteBlogPost(post.id)
+    if (error) {
+      console.error('Error deleting blog post:',error)
+    }
+    alert(`Post with id: ${post.id} deleted`)
+    // TODO: revalidate path correctly, pass it in as a prop instead
+    revalidatePath('/admin/blog', 'layout')
   }
 
   // TODO: Add author/status to posts

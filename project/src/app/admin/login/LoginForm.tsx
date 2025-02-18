@@ -16,8 +16,14 @@ export default function LoginForm() {
 
     return (
         <div className="py-20">
+            <div className="flex items-center justify-center">
+            
             <form action={handleSubmit} className="space-y-4">
-                <label htmlFor="email">Email:</label>
+                <label 
+                htmlFor="email"
+                className="block mb-2 text-lg text-white font-bold"
+                >Email:
+                </label>
                 <Input id="email" name="email" type="email" required />
 
                 <label htmlFor="password">Password:</label>
@@ -27,6 +33,7 @@ export default function LoginForm() {
                     {loading ? 'Logging in...' : 'Log in'}
                 </Button>
             </form>
+            </div>
 
         </div>
 
