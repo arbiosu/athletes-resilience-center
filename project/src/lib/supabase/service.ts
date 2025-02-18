@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js"
-import { Database } from "@/lib/types/supabase"
+import { Database } from "@/lib/supabase/database"
 
 
 /**
