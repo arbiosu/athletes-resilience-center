@@ -7,8 +7,6 @@ import Link from "next/link"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Blog", href: "/blog"},
-  { name: "Episodes", href: "/episodes"},
-  { name: "About", href: "/about"}
 ]
 
 

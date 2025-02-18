@@ -6,7 +6,7 @@ import SpotifyEmbeddedPlayer from '@/components/SpotifyEmbeddedPlayer'
 import { getEpisodes } from '@/lib/spotify/spotify'
 
 
-interface SpotifySimplifiedEpisode {
+export interface SpotifySimplifiedEpisode {
   audio_preview_url: string
   description: string
   html_description: string
@@ -16,6 +16,7 @@ interface SpotifySimplifiedEpisode {
   href: string
   id: string
   release_date: string
+  name: string
 }
 
 
