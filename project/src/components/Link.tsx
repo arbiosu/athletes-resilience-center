@@ -34,7 +34,7 @@ export function SubscribeLink() {
 
 export function SocialMediaButtons({ href, icon: Icon, label }: LinkButtonProps) {
     return (
-        <Button asChild variant="custom" size="lg" className={cn("gap-2 py-6 sm:grid-rows-3 bg-green-600")}>
+        <Button asChild name={label} variant="custom" size="lg" className={cn("gap-2 py-6 sm:grid-rows-3")}>
             <Link href={href} rel="noopener noreferrer" target="_blank">
                 <Icon className="h-4 w-4" /> {label}
             </Link>

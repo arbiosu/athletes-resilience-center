@@ -25,7 +25,7 @@ export interface AboutHostProps {
 
 export function AboutArc({ props }: { props: AboutArcProps }) {
     return (
-        <Card className="w-full max-w-4xl mx-auto">
+        <Card className="w-full max-w-4xl mx-auto px-10">
             <CardHeader>
                 <CardTitle className="text-2xl font-bold">About the Show</CardTitle>
             </CardHeader>
@@ -44,8 +44,10 @@ export function AboutArc({ props }: { props: AboutArcProps }) {
                                 <Image
                                     src={host.hostImg}
                                     alt={host.name}
-                                    layout="fill"
-                                    objectFit="cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    placeholder="blur"
+                                    blurDataURL='/logoNoBg.png'
                                 />
                             </div>
                             <h4 className="text-lg font-semibold mb-2">{host.name}</h4>
