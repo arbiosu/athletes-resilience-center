@@ -1,74 +1,85 @@
-import React from 'react'
-import Image from 'next/image'
-import { 
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { SubscribeLink } from '@/components/Link'
-import { Button } from "@/components/ui/button"
-import { Twitter, Facebook, Instagram } from 'lucide-react'
+import Image from "next/image"
 
-export interface AboutArcProps {
-  title: string
-  description: string
-  hosts: AboutHostProps[]
-}
-
-export interface AboutHostProps {
+interface HostProps {
     name: string
+    experience: string
     bio: string
-    hostImg: string
+    image: string
 }
 
-export function AboutArc({ props }: { props: AboutArcProps }) {
+const hosts: HostProps[] = [
+    {
+        name: "Brandon Zachary",
+        experience: "Former pitcher...etc",
+        bio: "Insert bio here",
+        image: "/logoNoBg.png",
+    },
+    {
+        name: "Matt Owens",
+        experience: "Former pitcher...etc",
+        bio: "Insert bio here",
+        image: "/logoNoBg.png",
+
+    },
+]
+
+
+function Host({ name, experience, bio, image }: HostProps) {
     return (
-        <Card className="w-full max-w-4xl mx-auto px-10">
-            <CardHeader>
-                <CardTitle className="text-2xl font-bold">About the Show</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-xl font-semibold mb-2">{props.title}</h3>
-                    <CardDescription className="text-sm mb-4 max-w-2xl mx-auto">
-                        {props.description}
-                    </CardDescription>
-                    <SubscribeLink />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    {props.hosts.map((host, index) => (
-                        <div key={index} className="flex flex-col items-center text-center">
-                            <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4">
-                                <Image
-                                    src={host.hostImg}
-                                    alt={host.name}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                    placeholder="blur"
-                                    blurDataURL='/logoNoBg.png'
-                                />
-                            </div>
-                            <h4 className="text-lg font-semibold mb-2">{host.name}</h4>
-                            <CardDescription className="text-sm mb-4">
-                                {host.bio}
-                            </CardDescription>
-                            <div className="flex space-x-2">
-                                <Button size="icon" variant="ghost">
-                                    <Twitter className="h-4 w-4" />
-                                </Button>
-                                <Button size="icon" variant="ghost">
-                                    <Facebook className="h-4 w-4" />
-                                </Button>
-                                <Button size="icon" variant="ghost">
-                                    <Instagram className="h-4 w-4" />
-                                </Button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </CardContent>
-        </Card>
+        <div className="flex flex-col items-center text-center space-y-4">
+            <Image
+                src={image}
+                alt={name}
+                width={200}
+                height={200}
+                className="rounded-full object-cover"
+            />
+            <div>
+                <h3 className="text-xl text-black font-semibold">{name}</h3>
+                <p className="text-logoGreen font-semibold mb-2">{experience}</p>
+                <p className="text-gray-600">{bio}</p>
+            </div>
+        </div>
     )
 }
+
+export default function About() {
+    return (
+        <section className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <h2 className="text-black text-3xl font-bold mb-12 text-center">
+                    About the Show
+                </h2>
+                <div className="max-w-3xl mx-auto mb-16">
+                    <p className="text-lg text-gray-700 mb-6">
+                    The Athlete&apos;s Resilience Center Podcast is dedicated to normalizing 
+                    the conversation around mental performance in sports, coaching, and the transitions 
+                    athletes face after their care  ers. Each episode explores the mental challenges anyone 
+                    associated with sports may encounter, both on and off the field.
+                    </p>
+                    <p className="text-lg text-gray-700">
+                    Whether you&apos;re an athlete, 
+                    coach, or someone navigating life after sports, this podcast offers conversations 
+                    centered around helping you build resilience at every stage of your athletic journey.
+                    Tune in for candid conversations from two people passionate about mental performance development
+                    </p>
+                </div>
+                <h3 className="text-black text-2xl font-semibold mb-8 text-center">
+                    Meet your Hosts
+                </h3>
+                <div className="grid md:grid-cols-2 gap-12">
+                    {hosts.map((host) => (
+                        <Host 
+                            name={host.name}
+                            experience={host.experience}
+                            bio={host.bio}
+                            image={host.image}
+                            key={host.name}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+

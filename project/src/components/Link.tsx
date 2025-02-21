@@ -26,7 +26,7 @@ export function SubscribeLink() {
             href="https://open.spotify.com/show/4ffm2AA2kGffaH6TbMzilZ?si=2bnAUAW_TVicae7kjhTE-Q&nd=1&dlsi=93f75f140fc34b37"
             rel="noopener noreferrer" target="_blank"
         >
-            <Button>Subscribe Now on Spotify</Button>
+            <Button variant="subscribe">Subscribe Now</Button>
         </Link>
     )
 }
