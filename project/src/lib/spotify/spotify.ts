@@ -1,5 +1,5 @@
 const spotifyId = "4ffm2AA2kGffaH6TbMzilZ"
-const endpoint = `https://api.spotify.com/v1/shows/${spotifyId}/episodes?limit=5`
+const endpoint = `https://api.spotify.com/v1/shows/${spotifyId}/episodes`
 
 async function getSpotifyAccessToken() {
     const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -19,10 +19,10 @@ async function getSpotifyAccessToken() {
 }
 
 // TODO: Add limit parameter
-export async function getEpisodes() {
+export async function getEpisodes(limit: number) {
     try {
         const { access_token } = await getSpotifyAccessToken()
-        const response = await fetch(endpoint, {
+        const response = await fetch(`${endpoint}?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${access_token}`
             }
