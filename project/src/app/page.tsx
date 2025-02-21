@@ -8,13 +8,13 @@ export const revalidate = 60 * 60 * 24 * 7
 
 
 export default function Home() {
-  
   return (
     <div>
       <NewHero />
-      <About />
+      <section className="py-20 bg-gray-50">
+        <About />
+      </section>
       <Featured />
-
     </div>
   )
 }

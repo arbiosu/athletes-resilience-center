@@ -1,38 +1,26 @@
 import { getEpisodes } from "@/lib/spotify/spotify"
 import { SpotifySimplifiedEpisode } from "@/components/FeaturedEpisode"
-import { FeaturedEpisode } from "@/components/FeaturedEpisode"
+import { Episode } from "@/components/FeaturedEpisode"
 
 
-export async function Page() {
+export default async function Episodes() {
     try {
-        const data = await getEpisodes()
+        const data = await getEpisodes(5)
         const episodes = data.items.filter((episode: SpotifySimplifiedEpisode) => episode !== null)
-        console.log(episodes)
-
-        
         return (
-            <main className="bg-gradient-to-bl from-logoGreen via-lightLogoGray to-lightLogoGreen min-h-screen">
-            <div className="pt-16">
-                <h1 className="text-black text-4xl font-bold">Episodes</h1>
-                <ul>
-                    {episodes.map((episode: SpotifySimplifiedEpisode) => (
-                        <li className="text-black" key={episode.id}>{episode.name}</li>
-                    )) ?? <p>No episodes available at the moment.</p>}
-                </ul>
-            </div>
+            <main className="min-h-screen py-20 bg-black">
+                <h1 className="text-4xl text-gray-50 text-center">Episode Library</h1>
+                <h2 className="text-2xl py-2 text-gray-50 text-center">Check out our most recent episodes.</h2>
+
+                {episodes.map((episode: SpotifySimplifiedEpisode) => (
+                    <Episode episode={episode} key={episode.id} />
+                ))}
             </main>
         )
-    } catch (error) {
+    }  catch (error) {
         console.error('Error fetching episodes:', error)
         return (
-            <div>
-                <h1>Episodes</h1>
-                <p>Error loading episodes. Please try again later.</p>
-            </div>
+            <p>Error loading episodes. Please try again later.</p>
         )
     }
-}
-
-export default function Episodes() {
-    return <FeaturedEpisode />
 }
