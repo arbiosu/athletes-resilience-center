@@ -18,18 +18,18 @@ export function BlogPostPreview({ post }: { post: Tables<'posts'> }) {
           priority
         />
       </div>
-      <CardContent className="p-6 flex flex-col h-[calc(500px-192px)]"> {/* 192px = 12rem (h-48) */}
-        <h2 className="text-2xl font-bold mb-2 line-clamp-2 text-emerald-950 dark:text-emerald-50">
+      <CardContent className="bg-white p-6 flex flex-col h-[calc(500px-192px)]"> {/* 192px = 12rem (h-48) */}
+        <h2 className="text-2xl font-bold mb-2 line-clamp-2 text-black">
           {post.title}
         </h2>
-        <div className="flex items-center mb-2 text-white">
+        <div className="flex items-center mb-2 text-black">
           <CalendarIcon className="mr-2 h-4 w-4" />
           {new Date(post.created_at).toLocaleDateString()}
         </div>
-        <p className="text-white mb-2">
+        <p className="text-black mb-2">
           By: {post.author}
         </p>
-        <p className="line-clamp-3 text-white mb-4">
+        <p className="line-clamp-3 text-black mb-4">
           {post.brief_description}
         </p>
         <div className="mt-auto">
