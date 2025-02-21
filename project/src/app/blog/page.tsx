@@ -10,18 +10,16 @@ export default async function Blog() {
         return <h1>Error</h1>
     }
     return (
-        <main className="pt-16 bg-gradient-to-bl from-logoGreen via-lightLogoGray to-lightLogoGreen">
-            <div className="container mx-auto min-h-screen py-14">
-                <div className="grid items-start justify-items-center px-4 lg:px-8 gap-4 md:grid-cols-2">
-                {data && data.length >= 1 ? (
-                    data.map((post, index) => (
-                        <BlogPostPreview key={index} post={post} />
-                    ))
-                ) : (
-                    <h1 className="text-white text-4xl">
-                        <span className="block text-green-200">No posts yet.</span>
-                    </h1>
-                )}
+        <main className="min-h-screen bg-gradient-to-t from-gray-50 to-logoGreen">
+            <div className="container mx-auto px-4 pt-20 pb-4">
+                <h1 className="text-4xl md:text-6xl font-bold mb-12 text-center">
+                    The Athlete&apos;s Resilience Blog
+                </h1>
+                <p className="text-2xl text-center py-10">Overall description of the blog posts here</p>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {data.map((blog) => (
+                        <BlogPostPreview key={blog.id} post={blog} />
+                    ))}
                 </div>
             </div>
         </main>

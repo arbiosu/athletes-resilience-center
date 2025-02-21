@@ -1,7 +1,9 @@
 import { getEpisodes } from "@/lib/spotify/spotify"
 import { SpotifySimplifiedEpisode } from "@/components/FeaturedEpisode"
+import { FeaturedEpisode } from "@/components/FeaturedEpisode"
 
-export default async function Episodes() {
+
+export async function Page() {
     try {
         const data = await getEpisodes()
         const episodes = data.items.filter((episode: SpotifySimplifiedEpisode) => episode !== null)
@@ -29,4 +31,8 @@ export default async function Episodes() {
             </div>
         )
     }
+}
+
+export default function Episodes() {
+    return <FeaturedEpisode />
 }

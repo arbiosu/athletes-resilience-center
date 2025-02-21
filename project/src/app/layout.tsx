@@ -31,7 +31,7 @@ export default function RootLayout({
     // per next-themes docs
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <Navbar />
         <ThemeProvider>
