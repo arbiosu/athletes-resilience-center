@@ -11,8 +11,8 @@ import { SubscribeLink } from "@/components/Link"
 
 
 const navItems = [
-  { name: "Blog", href: "/blog"},
   { name: "Episodes", href: "/episodes"},
+  { name: "Blog", href: "/blog"},
   { name: "About", href: "/about"},
   { name: "Contact", href: "/contact"},
 ]

@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { PlayCircle } from 'lucide-react'
 import SpotifyEmbeddedPlayer from '@/components/SpotifyEmbeddedPlayer'
 import { getEpisodes } from '@/lib/spotify/spotify'
@@ -19,8 +18,13 @@ export interface SpotifySimplifiedEpisode {
   name: string
 }
 
+interface EpisodeProps {
+  episode: SpotifySimplifiedEpisode
+}
+
+
 export default async function Featured() {
-  const data = await getEpisodes()
+  const data = await getEpisodes(10)
   const featuredEpisode = data.items.find((episode: SpotifySimplifiedEpisode) => episode)
 
   return (
@@ -52,41 +56,33 @@ export default async function Featured() {
   )
 }
 
-
-export async function FeaturedEpisode() {
-  const data = await getEpisodes()
-  const featuredEpisode = data.items.find((episode: SpotifySimplifiedEpisode) => episode)
-
+export function Episode({ episode }: EpisodeProps) {
   return (
-    <section className="py-20 bg-gradient-to-t from-logoGreen to-gray-50">
-    <Card className="w-full max-w-4xl mx-auto px-10">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-white">Featured Episode</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="w-full">
-          <SpotifyEmbeddedPlayer episodeId={featuredEpisode.id} />
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold mb-2 text-emerald-50">{featuredEpisode.name}</h3>
-          <CardDescription className="text-sm mb-4 dark:text-gray-400">
-            {featuredEpisode.description}
-          </CardDescription>
-        </div>
-        <div className="flex items-center justify-between text-sm text-white">
-            <span>Duration: {new Date(featuredEpisode.duration_ms).toISOString().substr(11, 8)}</span>
-            <span>Released on {new Date(featuredEpisode.release_date).toLocaleDateString()}</span>
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <div className="aspect-w-16 aspect-h-9">
+            <SpotifyEmbeddedPlayer episodeId={episode.id} />
           </div>
-      </CardContent>
-      <CardFooter>
-        <Link href={featuredEpisode.external_urls.spotify} rel="noopener noreferrer" target="_blank">
-          <Button>
-            <PlayCircle className="mr-2 h-4 w-4" /> Listen on Spotify
-          </Button>
-        </Link>
-      </CardFooter>
-    </Card>
-    </section>
+        </div>
+        <div className="lg:col-span-1 space-y-4">
+          <h1 className="text-2xl font-bold">{episode.name}</h1>
+          <p className="text-gray-50">{episode.description}</p>
+          <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <span className="text-gray-50">Length: {new Date(episode.duration_ms).toISOString().substr(11, 8)}</span>
+            <span className="text-gray-50">|</span>
+            <span className="text-gray-50">Released on: {new Date(episode.release_date).toLocaleDateString()}</span>
+          </div>
+          <div className="py-4">
+            <Link href={episode.external_urls.spotify} rel="noopener noreferrer" target="_blank">
+              <Button variant="subscribe">
+                <PlayCircle className="mr-2 h-4 w-4" /> Listen on Spotify
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

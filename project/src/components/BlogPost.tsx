@@ -13,7 +13,7 @@ interface Post {
 export default function BlogPost({ post }: { post: Post }) {
     const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${post.picture_url}`
     return (
-        <div className="py-20 bg-gradient-to-t from-gray-50 to-logoGreen">
+        <div className="py-20">
             <Card className="max-w-3xl mx-auto my-8 px-4">
             <div className="relative aspect-video">
                 <Image
