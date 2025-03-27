@@ -1,16 +1,22 @@
 import Link from "next/link"
 import { Headphones, Youtube, Instagram } from "lucide-react"
 
+// TODO: add blog and contact once finished
+const footerLinks = [
+  { href: "/about", label: "About"},
+  { href: "/episodes", label: "Episodes"},
+]
+
 export default function Footer() {
     const currentYear = new Date().getFullYear()
     return (
-        <footer className="bg-gray-100 text-gray-600 py-8">
+        <footer className="py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand and Copyright */}
             <div className="md:col-span-2">
               <Link href="/" className="flex items-center mb-4">
-                <span className="text-2xl font-bold text-gray-800">Athlete&apos;s Resilience Center</span>
+                <span className="text-2xl font-bold">Athlete&apos;s Resilience Center</span>
               </Link>
               <p className="text-sm">&copy; {currentYear} Athlete&apos;s Resilience Center. All rights reserved.</p>
             </div>
@@ -19,26 +25,16 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li>
-                    <Link href="/episodes" className="hover:text-gray-800 transition-colors">
-                        Episodes
+                {footerLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link 
+                      href={link.href} 
+                      className="block transition-transform hover:scale-110 focus:scale-110 active:scale-95"
+                    >
+                      {link.label}
                     </Link>
-                    </li>
-                <li>
-                    <Link href="/blog" className="hover:text-gray-800 transition-colors">
-                        Blog
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/about" className="hover:text-gray-800 transition-colors">
-                        About
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/contact" className="hover:text-gray-800 transition-colors">
-                        Contact
-                    </Link>
-                </li>
+                  </li>
+                ))}
               </ul>
             </div>
   
@@ -46,33 +42,33 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
-                <a
+                <Link
                     href="https://open.spotify.com/show/4ffm2AA2kGffaH6TbMzilZ?si=2bnAUAW_TVicae7kjhTE-Q&nd=1&dlsi=93f75f140fc34b37"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-800 transition-colors"
+                    className="hover:block transition-transform hover:scale-110 focus:scale-110 active:scale-95"
                 >
                     <Headphones size={24} />
                     <span className="sr-only">Spotify</span>
-                </a>
-                <a
+                </Link>
+                <Link
                     href="https://www.youtube.com/@AthletesResilienceCenter"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-800 transition-colors"
+                    className="hover:block transition-transform hover:scale-110 focus:scale-110 active:scale-95"
                 >
                     <Youtube size={24} />
                     <span className="sr-only">Youtube</span>
-                </a>
-                <a
+                </Link>
+                <Link
                     href="https://www.instagram.com/athletesresiliencecenter/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-800 transition-colors"
+                    className="hover:block transition-transform hover:scale-110 focus:scale-110 active:scale-95"
                 >
                     <Instagram size={24} />
                     <span className="sr-only">Instagram</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
