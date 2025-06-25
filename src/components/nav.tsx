@@ -32,7 +32,7 @@ export default function Nav() {
         <Link href='/' className='flex items-center space-x-2'>
           <div className='flex flex-col'>
             <span className='text-lg font-bold tracking-tight'>
-              Athlete's Resilience Center
+              {"Athlete's Resilience Center"}
             </span>
             <span className='text-muted-foreground hidden text-xs sm:block'>
               Find Your Performance Arc
