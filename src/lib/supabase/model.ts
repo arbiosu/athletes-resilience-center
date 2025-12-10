@@ -1,5 +1,30 @@
+'use server';
+
+import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
-import { TablesInsert } from './database';
+import { type TablesInsert } from './database';
+import type { User, AuthError } from '@supabase/supabase-js';
+
+interface CheckUserResponse {
+  user: User | null;
+  err: AuthError | null;
+}
+
+export async function checkUser(): Promise<CheckUserResponse> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error) {
+    return {
+      user: null,
+      err: error,
+    };
+  }
+
+  return {
+    user: data.user,
+    err: null,
+  };
+}
 
 export async function getAllCoaches() {
   const supabase = await createClient();
@@ -47,4 +72,56 @@ export async function getBookingById(bookingId: string) {
     .select('*, coaches(*)')
     .eq('id', bookingId)
     .single();
+}
+
+export async function getPostById(postId: string) {
+  const supabase = await createClient();
+  return await supabase.from('posts').select().eq('id', postId).single();
+}
+
+export async function createPost(post: TablesInsert<'posts'>) {
+  const supabase = await createClient();
+  return await supabase.from('posts').insert(post).select().single();
+}
+
+export async function upsertPost(post: TablesInsert<'posts'>) {
+  const supabase = await createClient();
+  return await supabase
+    .from('posts')
+    .upsert({ id: post.id, ...post })
+    .select()
+    .single();
+}
+
+export async function deletePostById(id: string) {
+  try {
+    const supabase = await createClient();
+    const { data: deleteData, error: deleteError } = await supabase
+      .from('posts')
+      .delete()
+      .eq('id', id)
+      .select()
+      .single();
+    if (deleteError || !deleteData) {
+      console.error(`Failed to delete post with id ${id}`);
+      return {
+        data: null,
+        error: `Failed to delete post. Code: ${deleteError?.code || 'UNKNOWN'}`,
+      };
+    }
+    // -- Success --
+    revalidatePath('/', 'layout');
+    return {
+      data: deleteData,
+      error: null,
+    };
+  } catch (error) {
+    console.log(error);
+    if (error instanceof Error) {
+      return {
+        data: null,
+        error: `Failed to delete post: ${error.message}`,
+      };
+    }
+  }
 }
