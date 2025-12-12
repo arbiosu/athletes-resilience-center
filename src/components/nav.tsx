@@ -16,6 +16,7 @@ import { ModeToggle } from '@/components/theme-toggle';
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Episodes', href: '/episodes' },
   { name: 'Coaching Sessions', href: '/coaching' },
   { name: 'About', href: '/about' },
