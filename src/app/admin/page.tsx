@@ -17,5 +17,4 @@ export default async function Page() {
         <SignOutButton />
       </section>
     );
-  }
 }
