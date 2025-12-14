@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import BackButton from '@/components/admin/back-button';
@@ -8,13 +8,7 @@ import AdminPostCard from '@/components/admin/post-card';
 import { checkUser } from '@/lib/supabase/model';
 
 export default async function Page() {
-  const { err } = await checkUser();
-  if (err) {
-    console.log('ERROR WITH AUTH');
-    redirect('/admin/login');
-  }
   const { data, error, count } = await queryPosts({ count: 'exact' });
-  console.log(data);
 
   if (error || count === null) {
     return <p>Could not fetch posts.</p>;
