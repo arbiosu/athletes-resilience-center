@@ -9,11 +9,6 @@ export default async function Page({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { err } = await checkUser();
-  if (err) {
-    console.log('ERROR WITH AUTH');
-    redirect('/admin/login');
-  }
   const postId = (await params).id;
   const { data, error } = await queryPosts({
     filter: {
@@ -24,8 +19,7 @@ export default async function Page({
   if (error || !data) {
     redirect('/admin');
   }
-  console.log(data);
-
+  
   return (
     <section className='mx-auto max-w-7xl'>
       <div>
